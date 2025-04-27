@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potomac River Restoration Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #7b5e36;
+            --secondary: #1a3040;
+            --accent: #4c8577;
+            --light: #f5f5f5;
+            --dark: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .logo span {
+            color: #a3c9a8;
+        }
+        
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        nav li {
+            padding: 15px 20px;
+        }
+        
+        nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://assets.onecompiler.app/43g3rcptg/43g3r7mvj/Great_Falls_Potomac_River_VA.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #97744a;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .issue-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .issue-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .issue-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .issue-content {
+            padding: 20px;
+        }
+        
+        .issue-content h3 {
+            color: var(--secondary);
+            margin-top: 0;
+        }
+        
+        .action-steps {
+            background-color: var(--light);
+            padding: 60px 0;
+        }
+        
+        .step-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .step-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .officials-section {
+            padding: 60px 0;
+        }
+        
+        .email-template {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .email-template textarea {
+            width: 100%;
+            height: 300px;
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 16px;
+        }
+        
+        .copy-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .resources-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .resource-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .resource-card h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        
+        .resource-card a {
+            display: inline-block;
+            color: var(--accent);
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 60px;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Potomac <span>Restoration</span> Hub</div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#issues">Key Issues</a></li>
+            <li><a href="#take-action">Take Action</a></li>
+            <li><a href="#contact-officials">Contact Officials</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#events">Events</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <h1>Restore the Potomac River</h1>
+        <p>Join our community effort to clean up and protect the Potomac River for future generations. The river provides drinking water to millions and is a vital ecosystem that needs our help.</p>
+        <a href="#take-action" class="btn">Get Involved Today</a>
+    </section>    
+    <section id="about" class="container">
+        <h2 class="section-title">About the Potomac River Crisis</h2>
+        <p>The Potomac River, often called the "Nation's River," flows through Washington D.C. and provides drinking water to millions of residents in the region. However, it faces significant environmental challenges from agricultural runoff, industrial pollution, and urban development.</p>
+        <p>Our mission is to create a central hub where concerned citizens can find information, resources, and direct actions they can take to help restore and protect this vital waterway for current and future generations.</p>
+    </section>
+    
+    <section id="issues" class="container">
+        <h2 class="section-title">Key Issues Facing the Potomac</h2>
+        <div class="issues-grid">
+            <div class="issue-card">
+                <div class="issue-content">
+                    <h3>Agricultural & Urban Runoff</h3>
+                    <p>Excess nutrients like nitrogen and phosphorus from fertilizers cause harmful algal blooms, depleting oxygen levels and creating "dead zones" where aquatic life cannot survive.</p>
+                </div>
+            </div>
+            
+            <div class="issue-card">
+                <div class="issue-content">
+                    <h3>Industrial & Wastewater Pollution</h3>
+                    <p>Chemical contaminants from industrial sites and inadequately treated sewage introduce harmful substances into the river, affecting water quality and aquatic life.</p>
+                </div>
+            </div>
+            
+            <div class="issue-card">
+                <div class="issue-content">
+                    <h3>Biodiversity & Habitat Loss</h3>
+                    <p>Poor water quality has led to declining fish populations and reduced biodiversity, threatening the entire ecosystem's resilience and health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="take-action" class="action-steps">
+        <div class="container">
+            <h2 class="section-title">How You Can Help</h2>
+            <div class="step-cards">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Sign Our Petition</h3>
+                    <p>Add your voice to thousands of others calling for stronger protections for the Potomac River.</p>
+                    <a href="#" class="btn">Sign Now</a>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Contact Your Representatives</h3>
+                    <p>Use our pre-written email templates to easily contact your local officials about Potomac River protection.</p>
+                    <a href="#contact-officials" class="btn">Email Officials</a>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Join A Cleanup Event</h3>
+                    <p>Participate in local river cleanup events to directly help remove trash and restore habitats.</p>
+                    <a href="#events" class="btn">Find Events</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact-officials" class="officials-section container">
+        <h2 class="section-title">Contact Your Elected Officials</h2>
+        <p>One of the most effective ways to create change is by contacting your elected representatives. Use our pre-written email template below - just copy, customize with your information, and send!</p>
+        
+        <div class="email-template">
+            <h3>Email Template for Local Representatives</h3>
+            <textarea id="email-template">Subject: Urgent Action Needed for Potomac River Restoration
+
+Dear [Representative's Name],
+
+I am writing to you as a concerned constituent regarding the critical state of the Potomac River. As you may know, the Potomac faces significant challenges from agricultural runoff, industrial pollution, and inadequate wastewater treatment, which threaten both our drinking water supply and the river's ecosystem.
+
+The Potomac River provides drinking water to millions in our region and serves as a vital habitat for countless species. Its health directly impacts our community's wellbeing and economic prosperity.
+
+I strongly urge you to:
+
+1. Support increased funding for Potomac River restoration projects and water quality monitoring programs
+2. Strengthen regulations on agricultural runoff and industrial waste discharge into the river and its tributaries
+3. Invest in green infrastructure to better manage stormwater and reduce urban pollution
+4. Promote educational initiatives about river conservation and sustainable practices
+
+The health of our "Nation's River" should be a non-partisan priority. I look forward to seeing your leadership on this critical environmental issue that affects all of us in the region.
+
+Thank you for your attention to this matter.
+
+Sincerely,
+[Your Name]
+[Your Address]
+[Your Phone Number]
+[Your Email]</textarea>
+            <button class="copy-btn" onclick="copyEmailTemplate()">Copy to Clipboard</button>
+        </div>
+        
+        <h3>Find Your Representatives</h3>
+        <p>Not sure who represents you? Use these resources to find your local officials:</p>
+        <ul>
+            <li><a href="https://www.house.gov/representatives/find-your-representative" target="_blank">Find your U.S. Representative</a></li>
+            <li><a href="https://www.senate.gov/senators/senators-contact.htm" target="_blank">Find your U.S. Senators</a></li>
+            <li><a href="https://www.usa.gov/state-local-governments" target="_blank">Find State & Local Government Officials</a></li>
+        </ul>
+    </section>
+    
+    <section id="resources" class="container">
+        <h2 class="section-title">Resources & Partner Organizations</h2>
+        <div class="resources-list">
+            <div class="resource-card">
+                <h3>Potomac Conservancy</h3>
+                <p>Leading clean water advocacy organization fighting to ensure the Potomac River boasts clean drinking water, healthy lands, and vibrant communities.</p>
+                <a href="https://potomac.org/" target="_blank">Visit Website</a>
+            </div>
+            
+            <div class="resource-card">
+                <h3>Chesapeake Bay Foundation</h3>
+                <p>The largest independent conservation organization dedicated solely to saving the Bay.</p>
+                <a href="https://www.cbf.org/" target="_blank">Visit Website</a>
+            </div>
+            
+            <div class="resource-card">
+                <h3>Interstate Commission on the Potomac River Basin</h3>
+                <p>Governmental agency that works to enhance, protect, and conserve the waters and associated land resources of the Potomac River.</p>
+                <a href="https://www.potomacriver.org/" target="_blank">Visit Website</a>
+            </div>
+            
+            <div class="resource-card">
+                <h3>Alliance for the Chesapeake Bay</h3>
+                <p>Brings together communities, companies, and conservationists to improve lands and waters.</p>
+                <a href="https://www.allianceforthebay.org/" target="_blank">Visit Website</a>
+            </div>
+            
+            <div class="resource-card">
+                <h3>Potomac Riverkeeper Network</h3>
+                <p>Protects the public's right to clean water through community engagement and enforcement.</p>
+                <a href="https://www.potomacriverkeepernetwork.org/" target="_blank">Visit Website</a>
+            </div>
+            
+            <div class="resource-card">
+                <h3>Anacostia Watershed Society</h3>
+                <p>Working to make the Anacostia River (a Potomac tributary) fishable and swimmable.</p>
+                <a href="https://www.anacostiaws.org/" target="_blank">Visit Website</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="events" class="container">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="issues-grid">
+            <div class="issue-card">
+                <img src="https://via.placeholder.com/400x200" alt="River Cleanup">
+                <div class="issue-content">
+                    <h3>Great Potomac Cleanup</h3>
+                    <p><strong>Date:</strong> May 15, 2025</p>
+                    <p><strong>Location:</strong> Multiple sites along the river</p>
+                    <p>Join hundreds of volunteers for our annual river cleanup day. All equipment provided!</p>
+                    <a href="#" class="btn">Register</a>
+                </div>
+            </div>
+            
+            <div class="issue-card">
+                <img src="https://via.placeholder.com/400x200" alt="Educational Workshop">
+                <div class="issue-content">
+                    <h3>Water Quality Monitoring Workshop</h3>
+                    <p><strong>Date:</strong> June 5, 2025</p>
+                    <p><strong>Location:</strong> Georgetown Waterfront Park</p>
+                    <p>Learn how to test water quality and become a citizen scientist monitoring the Potomac.</p>
+                    <a href="#" class="btn">Register</a>
+                </div>
+            </div>
+            
+            <div class="issue-card">
+                <img src="https://via.placeholder.com/400x200" alt="Community Meeting">
+                <div class="issue-content">
+                    <h3>Potomac Summit 2025</h3>
+                    <p><strong>Date:</strong> July 12, 2025</p>
+                    <p><strong>Location:</strong> Virtual Event</p>
+                    <p>Online conference featuring experts discussing the latest in river restoration techniques and policy.</p>
+                    <a href="#" class="btn">Register</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="logo">Potomac <span>Restoration</span> Hub</div>
+            <p>Join us in protecting and restoring the Potomac River for future generations.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 Potomac Restoration Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyEmailTemplate() {
+            const templateText = document.getElementById('email-template');
+            templateText.select();
+            document.execCommand('copy');
+            alert('Email template copied to clipboard! You can now paste it into your email client.');
+        }
+    </script>
+</body>
+</html> 

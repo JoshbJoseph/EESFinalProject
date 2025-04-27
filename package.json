@@ -1,0 +1,16 @@
+{
+  "name": "potomac-river-restoration-hub",
+  "version": "1.0.0",
+  "description": "A website dedicated to Potomac River restoration efforts",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel start",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1"
+  },
+  "devDependencies": {
+    "vercel": "^33.0.0"
+  }
+} 
